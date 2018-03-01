@@ -5,7 +5,7 @@ Public void talk; {
 
 void SayThis b;
 { 
-    var=1 “hello world” f;
+    var= 1 “hello world” f;
     Print= “hello world” ()
     If print.say = true,then = (say “hello world”);
 }
