@@ -1,0 +1,31 @@
+Using talk.space;
+Using voice.space;
+
+Public void talk; {
+
+void SayThis b;
+{ 
+    var=1 “hello world” f;
+    Print= “hello world” ()
+    If print.say = true,then = (say “hello world”);
+}
+    }
+
+    void RepeatThat f;
+    {
+       var=2 "hello world" b;
+       print= "hello world" ()
+        IfThis = print GoTo.line 4
+    }
+
+     }
+
+    oneup.voice = var , 10
+     {git.voice = true
+      lookup voice != google.com ,0.0 f; ()}
+      }
+       }
+ private look ((var=1))
+ If Rif = false then look.else
+{lookup if time.lerp = speed * talk then !!= Print "hello world" b;
+  }
