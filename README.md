@@ -1,2 +1,2 @@
 # darsa
-this my new programing language that i'm working on
+this is my new programing language that i'm working on
