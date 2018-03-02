@@ -1,0 +1,27 @@
+def lex (char):
+c = char.set_next()
+ if c " \n":
+else if c in "+-*/":
+else if c in "(){},;=:":
+else if c in ("'",'"'):
+else if c in ("b","f"):
+else re.match ("[.0-9]", c):
+else re.match ("[_a-zA-Z]",c):
+else:
+
+def_scan_string(delim, chars):
+   ret = ""
+   while char.move_next()
+   if c is None:
+       raise Excepion(...)
+       ret += c
+       chars.move_next()
+       return ret
+
+def _scan(first_char, chars, allowed):
+    ret = first_char
+    p = char.next
+    while p is not None and re.match(allowed , p):
+    ret += chars.move_next()
+    p = chars.next
+    return ret
