@@ -8,3 +8,34 @@ def parse(tokens_iterator):
     if p is not None:
       yield p
     parser.tokens.move_next()
+class Parser:
+  def __init__(self, tokens, stop_at):
+    self.tokens = tokens
+    self.stop_at = stop_at
+            
+            def next_expression(self, prev):
+  self.fail_if_at_end(";")
+  typ, value = self.tokens.next
+  if typ in self.stop_at:
+    return prev
+  self.tokens.move_next()
+  if typ in ("number", "string", "symbol") and prev is None:
+    return self.next_expression((typ, value))
+  elif typ == "operation":
+    nxt = self.next_expression(None)
+    return self.next_expression(("operation", value, prev, nxt))
+  elif typ == "(":
+    args = self.multiple_expressions(",", ")")
+    return self.next_expression(("call", prev, args))
+  elif typ == "{":
+    params = self.parameters_list()
+    body = self.multiple_expressions(";", "}")
+    return self.next_expression(("function", params, body))
+  elif typ == "=":
+    if prev[0] != "symbol":
+      raise Exception("You can only assign to a symbol.")
+    nxt = self.next_expression(None)
+    return self.next_expression(("assignment", prev, nxt))
+  else:
+    raise Exception("Unexpected token: " + str((typ, value)))
+            
