@@ -1,0 +1,10 @@
+//this is the new parser
+
+def parse(tokens_iterator):
+  parser = Parser(PeekableStream(tokens_iterator),
+    ";")
+  while parser.tokens.next is not None:
+    p = parser.next_expression(None)
+    if p is not None:
+      yield p
+    parser.tokens.move_next()
