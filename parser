@@ -38,4 +38,22 @@ class Parser:
     return self.next_expression(("assignment", prev, nxt))
   else:
     raise Exception("Unexpected token: " + str((typ, value)))
+    
+    
+def multiple_expressions(self, sep, end):
+  ret = []
+  self.fail_if_at_end(end)
+  typ = self.tokens.next[0]
+  if typ == end:
+    self.tokens.move_next()
+  else:
+    arg_parser = Parser(self.tokens, (sep, end))
+    while typ != end:
+      p = arg_parser.next_expression(None)
+      if p is not None:
+        ret.append(p)
+      typ = self.tokens.next[0]
+      self.tokens.move_next()
+      self.fail_if_at_end(end)
+  return ret
             
